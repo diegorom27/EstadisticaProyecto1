@@ -69,11 +69,13 @@ public class Datos {
     }
 
     public void calcularnumeroDeIntervalo() {
-        setNumeroIntervalos((int) (1 + 3.3 * log(getDatos().size() + 0.5)));
+        double h =((1 + 3.322 * Math.log10(getDatos().size()))+ 0.5);
+        setNumeroIntervalos((int) h);
     }
 
     public void calcularTamañoIntervalo() {
-        setTamañoIntervalo((int) ((Collections.max(datos) - Collections.min(datos)) / getNumeroIntervalos()+0.5));
+        double h= (((Collections.max(datos) - Collections.min(datos)) / getNumeroIntervalos())+0.5);
+        setTamañoIntervalo((int) h);
     }
 
     public void crearIntevalos() {
@@ -114,6 +116,7 @@ public class Datos {
         datosAgrupados.get(0).calcularFrecuenciaAbsoluta();
         datosAgrupados.get(0).setFrecuenciaAbsolutaAcumulada(datosAgrupados.get(0).getFrecuenciaAbsoluta());
         datosAgrupados.get(0).setFrecuenciaRelativa(datosAgrupados.get(0).getFrecuenciaAbsoluta() / datos.size());
+        datosAgrupados.get(0).setFrecuenciaRelativaAcumulada(datosAgrupados.get(0).getFrecuenciaAbsoluta() / datos.size());
         while (u < datosAgrupados.size()) {
             datosAgrupados.get(u).calcularFrecuenciaAbsoluta();
             datosAgrupados.get(u).setFrecuenciaAbsolutaAcumulada(datosAgrupados.get(u - 1).getFrecuenciaAbsolutaAcumulada() + datosAgrupados.get(u).getFrecuenciaAbsoluta());

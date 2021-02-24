@@ -126,11 +126,12 @@ public class Datos {
 
     public void imprimirFrecuencias() {
         while (j < datosAgrupados.size()) {
-            System.out.println("(" + datosAgrupados.get(j).getMin() + "-" + datosAgrupados.get(j).getMin() + ")"
+            System.out.println("(" + datosAgrupados.get(j).getMin() + "-" + datosAgrupados.get(j).getMax() + ")"
                     + "fi = " + datosAgrupados.get(j).getFrecuenciaAbsoluta()
                     + "Fi = " + datosAgrupados.get(j).getFrecuenciaAbsolutaAcumulada()
                     + "fi/n = " + datosAgrupados.get(j).getFrecuenciaRelativa()
                     + "Fi/n = " + datosAgrupados.get(j).getFrecuenciaRelativaAcumulada() + "\n");
+            j++;
         }
     }
 

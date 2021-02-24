@@ -69,7 +69,7 @@ public class Datos {
     }
 
     public void calcularnumeroDeIntervalo() {
-        double h = Math.floor((1 + 3.322 * Math.log10(getDatos().size()))+ 0.5);
+        double h = Math.floor((1 + 3.322 * Math.log10(getDatos().size())));
         setNumeroIntervalos((int) h);
     }
 

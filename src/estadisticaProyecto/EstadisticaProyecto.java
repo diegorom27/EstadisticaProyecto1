@@ -20,9 +20,9 @@ public class EstadisticaProyecto {
         int opcion = 1;
         
         while (opcion != 0) {
-            System.out.println("1. -----Introducir datos -----");
-            System.out.println("2. -----Crear intervalos -----");
-            System.out.println("3. ---------salir-------------");
+            System.out.println("1. -----Introducir datos -----\n");
+            System.out.println("2. -----Crear intervalos -----\n");
+            System.out.println("3. ---------salir-------------\n");
 
             Datos datos = new Datos();
             opcion = sc.nextInt();

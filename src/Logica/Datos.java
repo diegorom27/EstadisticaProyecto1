@@ -19,6 +19,8 @@ public class Datos {
     int i = 1;
     int j=0;
     int w=0;
+    int u=1;
+    
     ArrayList<Double> datos;
     int numeroIntervalos = 0;
     double tamañoIntervalo = 0;
@@ -86,11 +88,16 @@ public class Datos {
             }
             j++;
         }
+        j=0;
+        w=0;
     }
     public void AnadirFrecuencias(){
-    
-    
-    
-    }
-    
+        datosAgrupados.get(0).setFrecuenciaAbsolutaAcumulada(datosAgrupados.get(0).getFrecuenciaAbsoluta());
+        datosAgrupados.get(0).setFrecuenciaRelativa(datosAgrupados.get(0).getFrecuenciaAbsoluta()/datos.size());
+        while(u<datosAgrupados.size()){
+            datosAgrupados.get(u).setFrecuenciaAbsolutaAcumulada(datosAgrupados.get(u-1).getFrecuenciaAbsolutaAcumulada() + datosAgrupados.get(u).getFrecuenciaAbsoluta());
+            datosAgrupados.get(u).setFrecuenciaRelativa(datosAgrupados.get(u).getFrecuenciaAbsoluta()/datos.size());
+            datosAgrupados.get(u).setFrecuenciaRelativaAcumulada(datosAgrupados.get(u-1).getFrecuenciaRelativaAcumulada() + datosAgrupados.get(u).getFrecuenciaRelativa());
+        }
+    }   
 }

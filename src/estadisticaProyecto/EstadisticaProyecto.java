@@ -18,22 +18,28 @@ public class EstadisticaProyecto {
 
         Scanner sc = new Scanner(System.in);
         int opcion = 1;
+        Datos datos = new Datos();
         
         while (opcion != 0) {
             System.out.println("1. -----Introducir datos -------\n");
             System.out.println("2. -----Crear intervalos --------\n");
             System.out.println("3. -----Cacular frecuencias -----\n");
-            System.out.println("5. -----Mostrar frecuencias-------\n");
+            System.out.println("4. -----Mostrar frecuencias-------\n");
             System.out.println("5.-------------salir-------------\n");
 
-            Datos datos = new Datos();
+            
             opcion = sc.nextInt();
 
             switch (opcion) {
 
                 case 1:
-                    double dato = sc.nextDouble();
-                    datos.anadirDatos(dato);
+                    System.out.println("-----Introducir tamaño de la muestra----\n");
+                    int tamano = sc.nextInt();
+                    while(datos.getDatos().size()!= tamano){
+                        System.out.println("-----ingrese dato----\n");
+                        double dato = sc.nextDouble();
+                        datos.anadirDatos(dato);
+                    }
                     break;
                 case 2:
                     datos.calcularnumeroDeIntervalo();

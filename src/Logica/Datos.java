@@ -56,11 +56,11 @@ public class Datos {
     }
     
     public void anadirDatos(Double i) {
-        this.datos.add(i);
+        getDatos().add(i);
     }
     
     public void calcularnumeroDeIntervalo(){
-        this.numeroIntervalos= (int) (1+3.3*log(this.datos.size()+0.5));
+        setNumeroIntervalos( (int) (1+3.3*log(getDatos().size()+0.5)));
     }
     
     public void calcularTamañoIntervalo(){

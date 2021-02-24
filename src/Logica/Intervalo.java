@@ -14,7 +14,9 @@ import java.util.ArrayList;
 public class Intervalo {
     double min;
     double max;
+    
     ArrayList<Double> datosIntervalo;
+    
     double frecuenciaAbsoluta;
     double frecuenciaAbsolutaAcumulada;
     double frecuenciaRelativa;
@@ -77,7 +79,7 @@ public class Intervalo {
     }
      
     public void anadirDatos(Double i) {
-        this.datosIntervalo.add(i);
+        getDatosIntervalo().add(i);
     }
     public void calcularFrecuenciaAbsoluta(){
         setFrecuenciaAbsoluta(datosIntervalo.size());

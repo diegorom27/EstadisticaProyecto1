@@ -40,13 +40,13 @@ public class EstadisticaProyecto {
                         double dato = sc.nextDouble();
                         datos.anadirDatos(dato);
                     }
-                    break;
+                break;
                 case 2:
                     datos.calcularnumeroDeIntervalo();
                     datos.calcularTamañoIntervalo();
                     datos.crearIntevalos();
                     datos.llenarIntervalos();
-                    break;
+                break;
                 case 3:
                     datos.AnadirFrecuencias();
                 break;

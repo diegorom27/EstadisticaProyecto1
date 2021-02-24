@@ -87,4 +87,10 @@ public class Datos {
             j++;
         }
     }
+    public void AnadirFrecuencias(){
+    
+    
+    
+    }
+    
 }

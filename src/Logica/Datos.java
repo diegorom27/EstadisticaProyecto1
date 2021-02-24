@@ -54,6 +54,16 @@ public class Datos {
     public void setTamañoIntervalo(double tamañoIntervalo) {
         this.tamañoIntervalo = tamañoIntervalo;
     }
+
+    public ArrayList<Intervalo> getDatosAgrupados() {
+        return datosAgrupados;
+    }
+
+    public void setDatosAgrupados(ArrayList<Intervalo> datosAgrupados) {
+        this.datosAgrupados = datosAgrupados;
+    }
+    
+    
     
     public void anadirDatos(Double i) {
         getDatos().add(i);
@@ -68,11 +78,12 @@ public class Datos {
     }
 
     public void crearIntevalos(){
-        this.datosAgrupados.get(0).setMin(Collections.min(datos));
-        datosAgrupados.get(0).setMax(Collections.min(datos)+ getTamañoIntervalo());
+        Collections.sort(datos);
+        getDatosAgrupados().get(0).setMin(datos.get(0));
+        getDatosAgrupados().get(0).setMax(datos.get(0)+ getTamañoIntervalo());
         while(this.datosAgrupados.size()!= this.numeroIntervalos){
-            this.datosAgrupados.get(i).setMin(datosAgrupados.get(i-1).getMax()+0.1);
-            this.datosAgrupados.get(i).setMin(datosAgrupados.get(i).getMin() - 0.1+ getTamañoIntervalo());
+            getDatosAgrupados().get(i).setMin(datosAgrupados.get(i-1).getMax()+0.1);
+            getDatosAgrupados().get(i).setMin(datosAgrupados.get(i).getMin() - 0.1+ getTamañoIntervalo());
             i++;
         }
         i = 1;

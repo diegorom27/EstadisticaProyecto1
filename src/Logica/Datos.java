@@ -101,7 +101,16 @@ public class Datos {
             datosAgrupados.get(u).setFrecuenciaRelativa(datosAgrupados.get(u).getFrecuenciaAbsoluta()/datos.size());
             datosAgrupados.get(u).setFrecuenciaRelativaAcumulada(datosAgrupados.get(u-1).getFrecuenciaRelativaAcumulada() + datosAgrupados.get(u).getFrecuenciaRelativa());
         }
-        u=0;
+        u=1;
+    }
+    public void imprimirFrecuencias(){
+        while(j<datosAgrupados.size()){
+            System.out.println("("+datosAgrupados.get(j).getMin()+"-"+ datosAgrupados.get(j).getMin()+")"+ 
+                    "fi = "+datosAgrupados.get(j).getFrecuenciaAbsoluta()+
+                    "Fi = "+datosAgrupados.get(j).getFrecuenciaAbsolutaAcumulada()+
+                    "fi/n = "+datosAgrupados.get(j).getFrecuenciaRelativa()+
+                    "Fi/n = "+datosAgrupados.get(j).getFrecuenciaRelativaAcumulada()+"\n");
+        }
     }
     
 }

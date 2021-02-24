@@ -75,10 +75,7 @@ public class Intervalo {
     public void setFrecuenciaRelativaAcumulada(double frecuenciaRelativaAcumulada) {
         this.frecuenciaRelativaAcumulada = frecuenciaRelativaAcumulada;
     }
-    
-    
-    
-    
+     
     public void anadirDatos(Double i) {
         this.datosIntervalo.add(i);
     }

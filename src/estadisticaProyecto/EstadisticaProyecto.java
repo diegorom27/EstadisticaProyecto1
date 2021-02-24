@@ -20,9 +20,11 @@ public class EstadisticaProyecto {
         int opcion = 1;
         
         while (opcion != 0) {
-            System.out.println("1. -----Introducir datos -----\n");
-            System.out.println("2. -----Crear intervalos -----\n");
-            System.out.println("3. ---------salir-------------\n");
+            System.out.println("1. -----Introducir datos -------\n");
+            System.out.println("2. -----Crear intervalos --------\n");
+            System.out.println("3. -----Cacular frecuencias -----\n");
+            System.out.println("5. -----Mostrar frecuencias-------\n");
+            System.out.println("5.-------------salir-------------\n");
 
             Datos datos = new Datos();
             opcion = sc.nextInt();
@@ -40,6 +42,12 @@ public class EstadisticaProyecto {
                     datos.llenarIntervalos();
                     break;
                 case 3:
+                    datos.AnadirFrecuencias();
+                break;
+                case 4:
+                    datos.imprimirFrecuencias();
+                break;
+                case 5:
                     opcion = 0;
                 break;
 

@@ -97,7 +97,7 @@ public class Datos {
         while (j < datosAgrupados.size()) {
             ArrayList<Double> agrupados = new ArrayList();
             while (w < datos.size()) {
-                if (datos.get(w) > datosAgrupados.get(j).getMin() && datos.get(w) < datosAgrupados.get(j).getMax()) {
+                if (datos.get(w) >= datosAgrupados.get(j).getMin() && datos.get(w) <= datosAgrupados.get(j).getMax()) {
                     agrupados.add(datos.get(w));
                 }
                 w++;
@@ -119,6 +119,7 @@ public class Datos {
             datosAgrupados.get(u).setFrecuenciaAbsolutaAcumulada(datosAgrupados.get(u - 1).getFrecuenciaAbsolutaAcumulada() + datosAgrupados.get(u).getFrecuenciaAbsoluta());
             datosAgrupados.get(u).setFrecuenciaRelativa(datosAgrupados.get(u).getFrecuenciaAbsoluta() / datos.size());
             datosAgrupados.get(u).setFrecuenciaRelativaAcumulada(datosAgrupados.get(u - 1).getFrecuenciaRelativaAcumulada() + datosAgrupados.get(u).getFrecuenciaRelativa());
+        u++;
         }
         u = 1;
     }

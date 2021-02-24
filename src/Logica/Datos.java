@@ -101,5 +101,7 @@ public class Datos {
             datosAgrupados.get(u).setFrecuenciaRelativa(datosAgrupados.get(u).getFrecuenciaAbsoluta()/datos.size());
             datosAgrupados.get(u).setFrecuenciaRelativaAcumulada(datosAgrupados.get(u-1).getFrecuenciaRelativaAcumulada() + datosAgrupados.get(u).getFrecuenciaRelativa());
         }
-    }   
+        u=0;
+    }
+    
 }

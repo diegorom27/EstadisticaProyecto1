@@ -23,7 +23,7 @@ public class Intervalo {
     double frecuenciaRelativaAcumulada;
     double frecuenciaEsperada;
     double frecuenciaEsperadaAcumulada;
-
+    double chi2;
     
     public double getMin() {
         return min;
@@ -102,6 +102,14 @@ public class Intervalo {
 
     public void setFrecuenciaEsperadaAcumulada(double frecuenciaEsperadaAcumulada) {
         this.frecuenciaEsperadaAcumulada = frecuenciaEsperadaAcumulada;
+    }
+
+    public double getChi2() {
+        return chi2;
+    }
+
+    public void setChi2(double chi2) {
+        this.chi2 = chi2;
     }
     
 }

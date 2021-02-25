@@ -104,7 +104,7 @@ public class Datos {
     }
 
     public void calcularTamañoIntervalo() {
-        double h= Math.floor(((Collections.max(datos) - Collections.min(datos)) / getNumeroIntervalos()));
+        double h= Math.floor(((Collections.max(datos) - Collections.min(datos)) / this.numeroIntervalos));
         setTamañoIntervalo((int) h);
     }
 
@@ -143,19 +143,26 @@ public class Datos {
     }
 
     public void AnadirFrecuencias() {
+        
+        double numero = getNumeroIntervalos();
+        
         datosAgrupados.get(0).calcularFrecuenciaAbsoluta();
         datosAgrupados.get(0).setFrecuenciaAbsolutaAcumulada(datosAgrupados.get(0).getFrecuenciaAbsoluta());
         datosAgrupados.get(0).setFrecuenciaRelativa(datosAgrupados.get(0).getFrecuenciaAbsoluta() / datos.size());
         datosAgrupados.get(0).setFrecuenciaRelativaAcumulada(datosAgrupados.get(0).getFrecuenciaAbsoluta() / datos.size());
-        datosAgrupados.get(0).setFrecuenciaEsperada(1/getNumeroIntervalos());
-        datosAgrupados.get(0).setFrecuenciaEsperadaAcumulada(1/getNumeroIntervalos());
+        datosAgrupados.get(0).setFrecuenciaEsperada(1/numero);
+        datosAgrupados.get(0).setFrecuenciaEsperadaAcumulada(1/numero);
+        datosAgrupados.get(0).setChi2(Math.pow((datosAgrupados.get(0).getFrecuenciaAbsoluta()-datosAgrupados.get(0).getFrecuenciaEsperada() ), 2)/datosAgrupados.get(0).getFrecuenciaEsperada());
+        
         while (u < datosAgrupados.size()) {
             datosAgrupados.get(u).calcularFrecuenciaAbsoluta();
             datosAgrupados.get(u).setFrecuenciaAbsolutaAcumulada(datosAgrupados.get(u - 1).getFrecuenciaAbsolutaAcumulada() + datosAgrupados.get(u).getFrecuenciaAbsoluta());
             datosAgrupados.get(u).setFrecuenciaRelativa(datosAgrupados.get(u).getFrecuenciaAbsoluta() / datos.size());
             datosAgrupados.get(u).setFrecuenciaRelativaAcumulada(datosAgrupados.get(u - 1).getFrecuenciaRelativaAcumulada() + datosAgrupados.get(u).getFrecuenciaRelativa());
-            datosAgrupados.get(0).setFrecuenciaEsperada(1/getNumeroIntervalos());
-            datosAgrupados.get(0).setFrecuenciaEsperadaAcumulada(datosAgrupados.get(u - 1).getFrecuenciaEsperadaAcumulada()+datosAgrupados.get(u).getFrecuenciaEsperadaAcumulada());
+            datosAgrupados.get(u).setFrecuenciaEsperada(1.0/numero);
+            datosAgrupados.get(u).setFrecuenciaEsperadaAcumulada(datosAgrupados.get(u - 1).getFrecuenciaEsperadaAcumulada() + datosAgrupados.get(u).getFrecuenciaEsperadaAcumulada());
+            datosAgrupados.get(u).setChi2(Math.pow((datosAgrupados.get(u).getFrecuenciaAbsoluta()-datosAgrupados.get(u).getFrecuenciaEsperada() ), 2)/datosAgrupados.get(u).getFrecuenciaEsperada());
+        
             u++;
         }
         u = 1;
@@ -164,12 +171,14 @@ public class Datos {
     public void imprimirFrecuencias() {
         while (j < datosAgrupados.size()) {
             System.out.println("(" + datosAgrupados.get(j).getMin() + "-" + datosAgrupados.get(j).getMax() + ")"
-                    + "fi = " + datosAgrupados.get(j).getFrecuenciaAbsoluta()
-                    + "Fi = " + datosAgrupados.get(j).getFrecuenciaAbsolutaAcumulada()
-                    + "fi/n = " + datosAgrupados.get(j).getFrecuenciaRelativa()
-                    + "Fi/n = " + datosAgrupados.get(j).getFrecuenciaRelativaAcumulada() + "\n"
-                    + "PE = " + datosAgrupados.get(j).getFrecuenciaEsperada() + "\n"
-                    + "PEA = " + datosAgrupados.get(j).getFrecuenciaEsperadaAcumulada() + "\n");
+                    + " fi = " + datosAgrupados.get(j).getFrecuenciaAbsoluta()
+                    + " Fi = " + datosAgrupados.get(j).getFrecuenciaAbsolutaAcumulada()
+                    + " fi/n = " + datosAgrupados.get(j).getFrecuenciaRelativa()
+                    + " Fi/n = " + datosAgrupados.get(j).getFrecuenciaRelativaAcumulada()
+                    + " PE = " + datosAgrupados.get(j).getFrecuenciaEsperada()
+                    + " PEA = " + datosAgrupados.get(j).getFrecuenciaEsperadaAcumulada()
+                    + " chi2 = " + datosAgrupados.get(j).getChi2() + "\n");
+                    
             j++;
         }
     }

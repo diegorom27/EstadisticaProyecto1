@@ -147,12 +147,16 @@ public class Datos {
         datosAgrupados.get(0).setFrecuenciaAbsolutaAcumulada(datosAgrupados.get(0).getFrecuenciaAbsoluta());
         datosAgrupados.get(0).setFrecuenciaRelativa(datosAgrupados.get(0).getFrecuenciaAbsoluta() / datos.size());
         datosAgrupados.get(0).setFrecuenciaRelativaAcumulada(datosAgrupados.get(0).getFrecuenciaAbsoluta() / datos.size());
+        datosAgrupados.get(0).setFrecuenciaEsperada(1/getNumeroIntervalos());
+        datosAgrupados.get(0).setFrecuenciaEsperadaAcumulada(1/getNumeroIntervalos());
         while (u < datosAgrupados.size()) {
             datosAgrupados.get(u).calcularFrecuenciaAbsoluta();
             datosAgrupados.get(u).setFrecuenciaAbsolutaAcumulada(datosAgrupados.get(u - 1).getFrecuenciaAbsolutaAcumulada() + datosAgrupados.get(u).getFrecuenciaAbsoluta());
             datosAgrupados.get(u).setFrecuenciaRelativa(datosAgrupados.get(u).getFrecuenciaAbsoluta() / datos.size());
             datosAgrupados.get(u).setFrecuenciaRelativaAcumulada(datosAgrupados.get(u - 1).getFrecuenciaRelativaAcumulada() + datosAgrupados.get(u).getFrecuenciaRelativa());
-        u++;
+            datosAgrupados.get(0).setFrecuenciaEsperada(1/getNumeroIntervalos());
+            datosAgrupados.get(0).setFrecuenciaEsperadaAcumulada(datosAgrupados.get(u - 1).getFrecuenciaEsperadaAcumulada()+datosAgrupados.get(u).getFrecuenciaEsperadaAcumulada());
+            u++;
         }
         u = 1;
     }
@@ -163,7 +167,9 @@ public class Datos {
                     + "fi = " + datosAgrupados.get(j).getFrecuenciaAbsoluta()
                     + "Fi = " + datosAgrupados.get(j).getFrecuenciaAbsolutaAcumulada()
                     + "fi/n = " + datosAgrupados.get(j).getFrecuenciaRelativa()
-                    + "Fi/n = " + datosAgrupados.get(j).getFrecuenciaRelativaAcumulada() + "\n");
+                    + "Fi/n = " + datosAgrupados.get(j).getFrecuenciaRelativaAcumulada() + "\n"
+                    + "PE = " + datosAgrupados.get(j).getFrecuenciaEsperada() + "\n"
+                    + "PEA = " + datosAgrupados.get(j).getFrecuenciaEsperadaAcumulada() + "\n");
             j++;
         }
     }
@@ -172,7 +178,7 @@ public class Datos {
         for(Double temp: datos){
             media = media+temp;
         }
-        setPromedio(media);
+        setPromedio(media/getDatos().size());
     }
     public void calcularDesviacionEstandarYVarianza(){
         calcularPromedio();

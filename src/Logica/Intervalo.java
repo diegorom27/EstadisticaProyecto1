@@ -21,7 +21,10 @@ public class Intervalo {
     double frecuenciaAbsolutaAcumulada;
     double frecuenciaRelativa;
     double frecuenciaRelativaAcumulada;
+    double frecuenciaEsperada;
+    double frecuenciaEsperadaAcumulada;
 
+    
     public double getMin() {
         return min;
     }
@@ -84,4 +87,21 @@ public class Intervalo {
     public void calcularFrecuenciaAbsoluta(){
         setFrecuenciaAbsoluta(datosIntervalo.size());
     }
+
+    public double getFrecuenciaEsperada() {
+        return frecuenciaEsperada;
+    }
+
+    public void setFrecuenciaEsperada(double frecuenciaEsperada) {
+        this.frecuenciaEsperada = frecuenciaEsperada;
+    }
+
+    public double getFrecuenciaEsperadaAcumulada() {
+        return frecuenciaEsperadaAcumulada;
+    }
+
+    public void setFrecuenciaEsperadaAcumulada(double frecuenciaEsperadaAcumulada) {
+        this.frecuenciaEsperadaAcumulada = frecuenciaEsperadaAcumulada;
+    }
+    
 }

@@ -26,6 +26,9 @@ public class Datos {
     int numeroIntervalos = 0;
     int tamañoIntervalo = 0;
     ArrayList<Intervalo> datosAgrupados;
+    double promedio= 0;
+    double varianza=0;
+    double desviacionEstandar;
 
     public Datos() {
         datos = new ArrayList();
@@ -63,6 +66,33 @@ public class Datos {
     public void setDatosAgrupados(ArrayList<Intervalo> datosAgrupados) {
         this.datosAgrupados = datosAgrupados;
     }
+
+    public double getPromedio() {
+        return promedio;
+    }
+
+    public void setPromedio(double promedio) {
+        this.promedio = promedio;
+    }
+
+    public double getDesviacionEstandar() {
+        return desviacionEstandar;
+    }
+
+    public void setDesviacionEstandar(double desviacionEstandar) {
+        this.desviacionEstandar = desviacionEstandar;
+    }
+
+    public double getVarianza() {
+        return varianza;
+    }
+
+    public void setVarianza(double varianza) {
+        this.varianza = varianza;
+    }
+    
+    
+    
 
     public void anadirDatos(Double i) {
         getDatos().add(i);
@@ -137,5 +167,25 @@ public class Datos {
             j++;
         }
     }
+    public void calcularPromedio(){
+        double media=0;
+        for(Double temp: datos){
+            media = media+temp;
+        }
+        setPromedio(media);
+    }
+    public void calcularDesviacionEstandarYVarianza(){
+        calcularPromedio();
+        double desviacion=0;
+        for(Double temp: datos){
+            desviacion = desviacion + Math.pow(temp-getPromedio(),2);
+        }
+        setVarianza(desviacion/getDatos().size());
+        setDesviacionEstandar(Math.sqrt(getVarianza()));
+        System.out.println("varianza: "+ getVarianza()+"\n");
+        System.out.println("Desciacion estandar: "+ getDesviacionEstandar()+"\n");
+    }
+    
+    
 
 }

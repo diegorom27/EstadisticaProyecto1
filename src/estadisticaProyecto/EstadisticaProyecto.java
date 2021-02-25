@@ -46,6 +46,7 @@ public class EstadisticaProyecto {
                     datos.llenarIntervalos();
                     datos.AnadirFrecuencias();
                     datos.imprimirFrecuencias();
+                    datos.calcularDesviacionEstandarYVarianza();
                 break;
                 case 3:
                     opcion = 0;

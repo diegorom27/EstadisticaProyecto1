@@ -202,7 +202,7 @@ public class Datos {
             POA[u] = datosAgrupados.get(u).getFrecuenciaRelativaAcumulada();
             PEA[u] = datosAgrupados.get(u).getFrecuenciaEsperadaAcumulada();
             
-            this.chi1= chi1 + datosAgrupados.get(u).getChi2();
+            this.chi1= this.chi1 + datosAgrupados.get(u).getChi2();
             
             u++;
         }

@@ -24,7 +24,6 @@ public class EstadisticaProyecto {
             System.out.println("1. -----Introducir datos -------\n");
             System.out.println("2. -Crear tabla de frecuencias -\n");
             System.out.println("3.-------------salir-------------\n");
-
             
             opcion = sc.nextInt();
 
@@ -47,6 +46,8 @@ public class EstadisticaProyecto {
                     datos.AnadirFrecuencias();
                     datos.imprimirFrecuencias();
                     datos.calcularDesviacionEstandarYVarianza();
+                    datos.reultadoChiCuadrado();
+                        
                 break;
                 case 3:
                     opcion = 0;

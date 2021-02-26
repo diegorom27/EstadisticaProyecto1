@@ -175,12 +175,12 @@ public class Datos {
         datosAgrupados.get(0).setFrecuenciaRelativaAcumulada(datosAgrupados.get(0).getFrecuenciaAbsoluta() / datos.size());
         datosAgrupados.get(0).setFrecuenciaEsperada(1/numero);
         datosAgrupados.get(0).setFrecuenciaEsperadaAcumulada(1/numero);
-        datosAgrupados.get(0).setChi2(Math.pow((datosAgrupados.get(0).getFrecuenciaAbsoluta()-datosAgrupados.get(0).getFrecuenciaEsperada() ), 2)/datosAgrupados.get(0).getFrecuenciaEsperada());
+        datosAgrupados.get(0).setChi2(Math.pow((datosAgrupados.get(0).getFrecuenciaRelativa()-datosAgrupados.get(0).getFrecuenciaEsperada() ), 2)/datosAgrupados.get(0).getFrecuenciaEsperada());
         
         expected[0] = datosAgrupados.get(0).getFrecuenciaEsperada();
         observed[0] = (long) datosAgrupados.get(0).frecuenciaRelativa;
         
-        
+        this.chi1= datosAgrupados.get(0).getChi2();
         
         while (u < datosAgrupados.size()) {
             
@@ -194,7 +194,7 @@ public class Datos {
             datosAgrupados.get(u).setFrecuenciaEsperada(1/numero);
             datosAgrupados.get(u).setFrecuenciaEsperadaAcumulada(this.datosAgrupados.get(u - 1).getFrecuenciaEsperadaAcumulada() + this.datosAgrupados.get(u).getFrecuenciaEsperada());
             
-            datosAgrupados.get(u).setChi2(Math.pow((datosAgrupados.get(u).getFrecuenciaAbsoluta()-datosAgrupados.get(u).getFrecuenciaEsperada() ), 2)/datosAgrupados.get(u).getFrecuenciaEsperada());
+            datosAgrupados.get(u).setChi2(Math.pow((datosAgrupados.get(u).frecuenciaRelativa-datosAgrupados.get(u).getFrecuenciaEsperada() ), 2)/datosAgrupados.get(u).getFrecuenciaEsperada());
             
             expected[u] = datosAgrupados.get(u).getFrecuenciaEsperada();
             observed[u] = (long) datosAgrupados.get(u).getFrecuenciaRelativa();
@@ -202,7 +202,7 @@ public class Datos {
             POA[u] = datosAgrupados.get(u).getFrecuenciaRelativaAcumulada();
             PEA[u] = datosAgrupados.get(u).getFrecuenciaEsperadaAcumulada();
             
-            chi1= chi1 + datosAgrupados.get(u).getChi2();
+            this.chi1= chi1 + datosAgrupados.get(u).getChi2();
             
             u++;
         }

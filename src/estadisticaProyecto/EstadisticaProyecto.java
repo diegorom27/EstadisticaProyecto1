@@ -47,7 +47,7 @@ public class EstadisticaProyecto {
                     datos.imprimirFrecuencias();
                     datos.calcularDesviacionEstandarYVarianza();
                     datos.reultadoChiCuadrado();
-                        
+                    opcion= 0;    
                 break;
                 case 3:
                     opcion = 0;

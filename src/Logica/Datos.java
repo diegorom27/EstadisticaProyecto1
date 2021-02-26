@@ -5,12 +5,11 @@
  */
 package Logica;
 
-import static com.sun.org.apache.xalan.internal.xsltc.compiler.util.Type.Int;
+
 import java.util.ArrayList;
 import java.lang.Integer;
-import static java.lang.Math.log;
 import java.util.Collections;
-import java.lang.Object;
+
 
 /**
  *

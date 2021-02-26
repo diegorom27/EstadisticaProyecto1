@@ -11,13 +11,6 @@ import java.lang.Integer;
 import static java.lang.Math.log;
 import java.util.Collections;
 import java.lang.Object;
-import org.apache.commons.math3.exception.DimensionMismatchException;
-import org.apache.commons.math3.exception.MaxCountExceededException;
-import org.apache.commons.math3.exception.NotPositiveException;
-import org.apache.commons.math3.exception.NotStrictlyPositiveException;
-import org.apache.commons.math3.stat.inference.ChiSquareTest;
-import org.apache.commons.math3.stat.inference.KolmogorovSmirnovTest;
-import static org.apache.commons.math3.stat.inference.TestUtils.kolmogorovSmirnovTest;
 
 /**
  *
@@ -43,8 +36,6 @@ public class Datos {
 
     
     
-    ChiSquareTest chi = new ChiSquareTest();
-    KolmogorovSmirnovTest kolmo = new KolmogorovSmirnovTest();
     
     public Datos() {
         datos = new ArrayList();
